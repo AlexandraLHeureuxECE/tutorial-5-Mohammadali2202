@@ -70,10 +70,10 @@ function reset() {
 	resetButton.textContent = "Restart";
 	resultMessage.textcontent = "";
 
-	circles.forEach((circle, index) => {
-		circle.style.backgroundColor = colours[index];
-		circle.addEventListener("click", clickCircle);
-	});
+	for (let i = 0; i < circles.length; i++) {
+		circles[i].style.backgroundColor = colours[i];
+		circles[i].addEventListener("click", clickCircle);
+	};
 }	
 //Write a function to make a random RGB color. For RGB colours are 
 // made up of 3 values from 0 to 256. You should basically generate 3 random 
@@ -90,7 +90,9 @@ function makeColour() {
 // Write a function that will set new values for the colours array.
 // It should contain as many RGB color strings as there are circles
 function genRandomColours() {
-	colours = colours.map(() => makeColour());
+	for (let i = 0; i < colours.length; i++) {
+		colours[i] = makeColour();
+	}
 
 	}
 
